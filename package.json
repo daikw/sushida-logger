@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --mode=development --watch --config config/webpack.config.js",
     "build": "webpack --mode=production --config config/webpack.config.js",
-    "format": "eslint --fix src && prettier --write src"
+    "format": "eslint --fix src config && prettier --write src config"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^6.4.1",
