@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    // <this is the line preventing from autoformatting>
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig"
+  ]
+}
