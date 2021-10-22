@@ -23,11 +23,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 chrome.action.onClicked.addListener((tab) => {
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: contentScriptFunc,
+    func: () => {
+      console.log({ tab })
+    },
     args: ["action"],
   })
 })
 
-function contentScriptFunc(name) {
-  console.log(`"${name}" executed`)
-}
+chrome.commands.onCommand.addListener(async (command, tab) => {
+  console.log({ command, tab, chrome, tabs: chrome.tabs })
+  const data = await chrome.tabs.captureVisibleTab(null, { format: "png", quality: 50 })
+  console.log({ data })
+})
